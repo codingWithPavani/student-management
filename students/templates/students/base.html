@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student App</title>
+    <style>
+             body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #2a5d84;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Student Management</h1>
+    <nav>
+        <a href="{% url 'student_list' %}" class="contain">Student List</a> |
+        <a href="{% url 'add_student' %}" class="contains">Add Student</a>
+        
+    </nav>
+
+</body>
+</html>

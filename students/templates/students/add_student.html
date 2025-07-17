@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            background-color: #007bff; /* Green */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+       
+        #add-student-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-width: 2px;
+            border-style: solid;
+            border-radius: 5px;
+            
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: #f9f9f9;
+            width: 300px;
+            margin: auto;
+
+        }
+        .contains {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+     {% extends 'students/base.html' %}
+     {% block content %}
+    <h2>Add Student</h2>
+    <form method="POST" id="add-student-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Student</button>
+    </form>
+    {% endblock %}
+</body>
+</html>

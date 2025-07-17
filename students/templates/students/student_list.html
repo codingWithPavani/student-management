@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background-color: #f0f8ff;
+    color: #333;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #2a5d84;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.contain{
+    text-decoration: underline;
+} 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+th {
+    background-color: #e8f1f8;
+}
+
+    </style>
+
+</head>
+<body>
+    {% extends "students/base.html" %}
+    {% block content %}
+    <h2>Student List</h2>
+    <nav>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+            <tr>
+                {% for student in students %}
+                    <td>{{ student.Name }}</td>
+                    <td>{{ student.Email }}</td>
+                    <td>{{ student.Age }}</td>
+                    <td>
+                        <a href="{% url 'edit_student' student.id %}" >Edit</a>
+                        <a href="{% url 'delete_student' student.id %} ">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="4">No students found.</td>
+                    </tr>
+                {% endfor %}
+            </tr>
+        </table>
+    </nav>
+    {% endblock %}
+</body>
+</html>
+
+
+
